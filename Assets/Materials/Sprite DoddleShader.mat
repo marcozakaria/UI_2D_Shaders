@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Sprite DoddleShader
   m_Shader: {fileID: 4800000, guid: 985099799added84787ab29a6fb3c449, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -25,7 +25,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - PixelSnap: 0
-    - _NoiseScale: 0.25
+    - _NoiseScale: 0.025
     - _NoiseSpeed: 0.5
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
