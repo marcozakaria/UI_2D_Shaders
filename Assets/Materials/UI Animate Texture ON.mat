@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _EffectTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: a281f011b13e7b740ac6bc1f9b0a8b96, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -28,8 +28,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AnimateX: 0
-    - _AnimateY: 0
+    - _AnimateX: 0.3
+    - _AnimateY: 0.1
     - _Cutoff: 0.5
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

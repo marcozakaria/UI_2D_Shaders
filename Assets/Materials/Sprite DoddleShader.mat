@@ -25,7 +25,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - PixelSnap: 0
-    - _NoiseScale: 0.025
-    - _NoiseSpeed: 0.5
+    - _NoiseScale: 0.01
+    - _NoiseSpeed: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

@@ -47,7 +47,7 @@
                 return o;
             }
 
-            void MakeStippling(v2f i)
+            inline void MakeStippling(v2f i)
             {
                 // threshold values foreach 4x4 block of pixels , random selected numbers
                 const float4x4 thresholdMatrix =
