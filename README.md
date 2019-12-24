@@ -1,11 +1,13 @@
-# UI-2D-Shaders
- 
-UI Rounded Corners
+# UI & 2D Shaders
 
-UI Sprite Border
+Unity 2019.3.0f1 , URP7.1.6 
 
-UI Animate Texture
+-UI Rounded Corners
 
-2D Doddle Sprite
+-UI Sprite Border
 
-Stippling Shader
+-UI Animate Texture
+
+-2D Doddle Sprite
+
+-Stippling Shader
