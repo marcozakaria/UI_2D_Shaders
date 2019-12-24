@@ -1,4 +1,4 @@
-﻿Shader "Custom/Circle Shader"
+﻿Shader "Custom/Bubble Circle Shader"
 {
     Properties
     {
