@@ -2,13 +2,19 @@
 {
     Properties
     {
+        _Color("Color",Color) = (1.0,1.0,1.0)
         _SizeA("Size A", Float) = 0.2
         _SizeB("Size B", Float) = 0.2
         _Speed("Speed", Range(0.0,2.0)) = 0.4
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { "RenderType"="Transparent"
+                "Queue"="Transparent" }
+
+        //ZWrite Off
+        Blend SrcAlpha OneMinusSrcAlpha
+        //Cull front
         LOD 100
 
         Pass
@@ -35,6 +41,7 @@
             fixed _SizeA;
             fixed _SizeB;
             fixed _Speed;
+            fixed3 _Color;
 
             /*v2f vert (appdata v)
             {
@@ -53,22 +60,21 @@
             }
 
 
-            inline float circle(float2 d, float r)
+            inline fixed circle(fixed2 d, fixed r)
             {
                 return smoothstep(r - (r * _SizeA), r + (r * _SizeB), dot(d, d));
             }
 
             fixed4 frag(appdata i) : COLOR
             {
-                 fixed3 color = fixed(0);
-
                 fixed2 uv = i.uv.xy;
                 fixed a = circle(uv - fixed2(0.5,0.5), 0.04 * sin(fmod(_Time.g * _Speed,1.0)));
                 fixed b = 1.0 - (circle(uv - fixed2(0.5,0.5), 0.05 * sin(fmod(_Time.g * _Speed,1.0))));
-                fixed3 c = fixed3(0.0, min(a, b),0.0); //RGB
-                c = c * (1.0 - (sin((fmod(_Time.g * _Speed, 1.0)))));
+                //fixed value = min(a, b) * (1.0 - (sin((fmod(_Time.g * _Speed, 1.0)))));
+                //fixed3 c = fixed3(0.0, min(a, b),0.0); //RGB
+                //c = c * (1.0 - (sin((fmod(_Time.g * _Speed, 1.0)))));
 
-                return fixed4(color + c,0.0) ;
+                return fixed4(_Color * min(a, b), min(a, b)) ;
             }
             ENDCG
         }

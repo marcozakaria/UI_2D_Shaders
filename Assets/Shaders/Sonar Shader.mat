@@ -25,6 +25,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _SizeA: 1
-    - _SizeB: 20
-    - _Speed: 1.027
-    m_Colors: []
+    - _SizeB: 5
+    - _Speed: 1.377
+    m_Colors:
+    - _Color: {r: 0, g: 1, b: 0.8085568, a: 1}

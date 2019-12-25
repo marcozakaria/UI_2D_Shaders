@@ -1,4 +1,6 @@
-﻿Shader "Custom/Bubble Circle Shader"
+﻿// converted from shader toy https://www.shadertoy.com/view/4dl3zn
+
+Shader "Custom/Bubble Circle Shader"
 {
     Properties
     {
