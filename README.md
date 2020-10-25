@@ -1,6 +1,6 @@
 # UI & 2D Shaders
 
-Unity 2019.3.0f1 , URP 7.1.6 
+Unity 2020.1 , URP 8.0 
 
 - UI Rounded Corners
 

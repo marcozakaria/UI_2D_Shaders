@@ -74,7 +74,7 @@
                 //fixed3 c = fixed3(0.0, min(a, b),0.0); //RGB
                 //c = c * (1.0 - (sin((fmod(_Time.g * _Speed, 1.0)))));
 
-                return fixed4(_Color * min(a, b), min(a, b)) ;
+                return fixed4(_Color, min(a, b));
             }
             ENDCG
         }

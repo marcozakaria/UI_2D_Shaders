@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Sonar Shader
-  m_Shader: {fileID: 4800000, guid: da07d654ba60e2f46ae83a270b2be52c, type: 3}
+  m_Name: Custom_Stiplle Unlite Shader
+  m_Shader: {fileID: 4800000, guid: 099dce1f244a70844b3f3764e33b6287, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -24,8 +24,5 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _SizeA: 1
-    - _SizeB: 5
-    - _Speed: 1.377
-    m_Colors:
-    - _Color: {r: 0, g: 1, b: 0.8085568, a: 1}
+    - _Transparency: 0.437
+    m_Colors: []
