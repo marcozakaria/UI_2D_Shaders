@@ -4,6 +4,7 @@
     {
         _ThresHold("ThresHold", Range(0, 1)) = 0.5
         [Toggle(horizontal)] _Horizontal("Horizontal", Float) = 0
+        [Toggle(positive)] _Positive("Positive", Float) = 0
     }
     SubShader
     {
@@ -17,6 +18,7 @@
             #pragma vertex vert
             #pragma fragment frag
             #pragma shader_feature horizontal 
+            #pragma shader_feature positive
 
             #include "UnityCG.cginc"
 
@@ -55,14 +57,25 @@
                    fixed right = 1 - i.uv.x;
                 #endif
 
-                if (left < _ThresHold)
-                {
-                    return i.color;
-                }
-                else
-                {
-                    return fixed4(0,0,0,0);
-                }
+                #ifdef positive
+                    if (left < _ThresHold)
+                    {
+                        return i.color;
+                    }
+                    else
+                    {
+                        return fixed4(0,0,0,0);
+                    }
+                  #else
+                    if (right < _ThresHold)
+                    {
+                        return i.color;
+                    }
+                    else
+                    {
+                        return fixed4(0,0,0,0);
+                    }
+                  #endif
 
             }
             ENDCG

@@ -20,6 +20,6 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - _ThresHold: 0.507
+    - _ThresHold: 0.344
     m_Colors: []
   m_BuildTextureStacks: []
