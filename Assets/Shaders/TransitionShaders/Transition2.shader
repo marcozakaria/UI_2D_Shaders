@@ -2,19 +2,31 @@
 {
     Properties
     {
+         [PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
+		_Color ("Tint", Color) = (1,1,1,1)
+
         _ThresHold("ThresHold", Range(0, 1)) = 0.5
+        [Toggle(horizontal)] _Horizontal("Horizontal", Float) = 0
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" "Queue"="Transparent" }
+        Tags { "RenderType"="Transparent" "Queue"="Transparent" 
+                "IgnoreProjector"="True" "PreviewType"="Plane"
+			    "CanUseSpriteAtlas"="True"}
+
         Blend SrcAlpha OneMinusSrcAlpha
-        LOD 100
+        Cull Off
+        Lighting Off
+        ZWrite Off
+        ZTest [unity_GUIZTestMode]
 
         Pass
         {
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
+
+            #pragma shader_feature horizontal 
 
             #include "UnityCG.cginc"
 
@@ -34,22 +46,32 @@
 
             fixed _ThresHold;
 
+            sampler2D _MainTex;
+            fixed4 _Color;
+            fixed4 _TextureSampleAdd;
+            //float4 _ClipRect;
+            float4 _MainTex_ST;
+
             v2f vert (appdata v)
             {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
-                o.uv = v.uv;
-                o.color = v.color;
+                o.uv = TRANSFORM_TEX(v.uv , _MainTex);
+                o.color = v.color * _Color;
                 return o;
             }
 
             fixed4 frag (v2f i) : SV_Target
             {
-                fixed upDown = i.uv.y;
+                #ifdef horizontal
+                    fixed upDown = i.uv.x;
+                #else
+                    fixed upDown = i.uv.y;
+                #endif
 
-                if(0.5 - abs(upDown -0.5) < _ThresHold * 0.5)
+                if(0.5 - abs(upDown - 0.5) < _ThresHold * 0.5)
                 {
-                    return i.color;
+                    return (tex2D(_MainTex, i.uv) + _TextureSampleAdd) * i.color;
                 }
                 else
                 {
